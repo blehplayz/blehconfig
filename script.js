@@ -12,15 +12,14 @@ function showPrice(paymentMethod) {
     const priceContainer = document.getElementById('price-container');
 
     if (paymentMethod === 'GCash') {
-        priceContainer.innerHTML = '<p>Price: ₱120 (GCash)</p>';
+        priceContainer.innerHTML = '<p>Price: $19.99 (GCash)</p>';
     } else if (paymentMethod === 'PayPal') {
-        priceContainer.innerHTML = '<p>Price: ₱120 or $3.00 (PayPal)</p>';
+        priceContainer.innerHTML = '<p>Price: $19.99 (PayPal)</p>';
     }
 
-    redirectToLink('https://t.me/blehplayz'); // Replace with your Telegram link
+    redirectToLink('https://t.me/your_telegram_link'); // Replace with your Telegram link
 }
 
 function redirectToLink(link) {
     window.location.href = link;
 }
-
