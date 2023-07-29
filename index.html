@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Product Selling Website</title>
+    <title>Single Product Selling Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Product Name</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="login.html">Login</a></li>
-                <!-- Add other navigation links here -->
-            </ul>
-        </nav>
     </header>
     <main>
         <div class="product">
             <img src="product-image.jpg" alt="Product Image">
             <h2>Product Name</h2>
             <p>Product Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu purus ac arcu hendrerit tempor.</p>
-            <p>Price: $3</p>
-            <p>Price: 120(PHP)</p>
-            <button class="buy-now-button" onclick="buyNow()">Buy Now</button>
+            <p>Price: $19.99</p>
+            <button onclick="showPaymentOptions()">Buy Now</button>
         </div>
     </main>
-    <div id="buy-now-modal" class="modal">
-        <!-- ... (modal content) ... -->
+    <div id="payment-options-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Choose Payment Method</h2>
+            <button class="gcash-button" onclick="showPrice('GCash')">GCash</button>
+            <button class="paypal-button" onclick="showPrice('PayPal')">PayPal</button>
+            <div id="price-display"></div>
+            <button class="tg-link-button" onclick="redirectToTG()">Proceed to Telegram</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
