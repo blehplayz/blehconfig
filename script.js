@@ -1,34 +1,26 @@
-let isLoggedIn = false;
-
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    // Simple check for demo purposes (Replace this with your secure authentication logic)
-    if (username === 'user' && password === 'password') {
-        isLoggedIn = true;
-        alert('Login successful!');
-        window.location.replace('index.html');
-    } else {
-        alert('Invalid username or password.');
-    }
-}
-
 function buyNow() {
-    if (isLoggedIn) {
-        const modal = document.getElementById('buy-now-modal');
-        modal.style.display = 'block';
-    } else {
-        alert('Please login to proceed.');
-        window.location.replace('login.html');
-    }
+    const modal = document.getElementById('payment-modal');
+    modal.style.display = 'block';
 }
 
 function closeModal() {
-    const modal = document.getElementById('buy-now-modal');
+    const modal = document.getElementById('payment-modal');
     modal.style.display = 'none';
 }
 
-function payment(method) {
-    // ... (payment logic) ...
+function showPrice(paymentMethod) {
+    const priceContainer = document.getElementById('price-container');
+
+    if (paymentMethod === 'GCash') {
+        priceContainer.innerHTML = '<p>Price: ₱120 (GCash)</p>';
+    } else if (paymentMethod === 'PayPal') {
+        priceContainer.innerHTML = '<p>Price: ₱120 or $3.00 (PayPal)</p>';
+    }
+
+    redirectToLink('https://t.me/blehplayz'); // Replace with your Telegram link
 }
+
+function redirectToLink(link) {
+    window.location.href = link;
+}
+
