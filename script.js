@@ -1,6 +1,27 @@
+let isLoggedIn = false;
+
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Simple check for demo purposes (Replace this with your secure authentication logic)
+    if (username === 'user' && password === 'password') {
+        isLoggedIn = true;
+        alert('Login successful!');
+        window.location.replace('index.html');
+    } else {
+        alert('Invalid username or password.');
+    }
+}
+
 function buyNow() {
-    const modal = document.getElementById('buy-now-modal');
-    modal.style.display = 'block';
+    if (isLoggedIn) {
+        const modal = document.getElementById('buy-now-modal');
+        modal.style.display = 'block';
+    } else {
+        alert('Please login to proceed.');
+        window.location.replace('login.html');
+    }
 }
 
 function closeModal() {
@@ -9,11 +30,5 @@ function closeModal() {
 }
 
 function payment(method) {
-    if (method === 'GCash') {
-        alert('Redirecting to GCash Payment...');
-        closeModal();
-    } else if (method === 'PayPal') {
-        alert('Redirecting to PayPal Payment...');
-        closeModal();
-    }
+    // ... (payment logic) ...
 }
